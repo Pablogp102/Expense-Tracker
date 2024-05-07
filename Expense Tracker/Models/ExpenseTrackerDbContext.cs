@@ -38,7 +38,8 @@ namespace Expense_Tracker.Models
 
             modelBuilder.Entity<Category>()
                 .Property(c => c.Type)
-                .HasMaxLength(50); 
+                .HasMaxLength(50);
+            
         }
     }
 }
