@@ -15,11 +15,13 @@ namespace Expense_Tracker.Models
         {
             // Transaction
             modelBuilder.Entity<Transaction>()
-                .HasKey(t => t.TransactionId);
+                .HasKey(t => t.TransactionId);  
 
             modelBuilder.Entity<Transaction>()
                 .Property(t => t.Note)
-                .HasMaxLength(75); 
+                .HasMaxLength(75)
+                .HasDefaultValueSql("NULL");
+
             modelBuilder.Entity<Transaction>()
                 .Property(t => t.Date)
                 .HasDefaultValueSql("getdate()"); 
@@ -30,7 +32,8 @@ namespace Expense_Tracker.Models
 
             modelBuilder.Entity<Category>()
                 .Property(c => c.Title)
-                .HasMaxLength(50); 
+                .HasMaxLength(50)
+                .IsRequired();
 
             modelBuilder.Entity<Category>()
                 .Property(c => c.Icon)
